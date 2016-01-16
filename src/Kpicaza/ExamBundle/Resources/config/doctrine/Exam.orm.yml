@@ -1,0 +1,51 @@
+## YAML Template.
+Kpicaza\ExamBundle\Entity\Exam:
+    type: entity
+    repositoryClass: Kpicaza\ExamBundle\Entity\ExamRepository
+    table: exam
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        subject:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+        access_code:
+            type: string
+            length: 255
+        is_active:
+            type: boolean
+            options:
+                default: false
+        has_help:
+            type: boolean
+            options:
+                default: true
+        to_aprove:
+            type: integer
+            length: 3
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    manyToMany:
+        questions:
+            targetEntity: Question
+            cascade: [ "persist" ]
+            joinTable:
+                name: exam_questions
+                joinColumns:
+                    exam_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    question_id:
+                        referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]
+      

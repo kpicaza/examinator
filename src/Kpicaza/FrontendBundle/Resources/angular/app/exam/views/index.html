@@ -1,0 +1,24 @@
+
+    <div class="thumbs col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default col-sm-12 col-md-12 col-lg-12" >
+            <div class="panel-body">
+
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search box" 
+                           aria-describedby="basic-addon1"
+                            ng-model="keywords" ng-change="search()" >
+                </div>
+                <strong>Sort by:</strong> {{keywords}}
+            </div>
+        </div>
+    </div>
+
+    <div class="thumbs col-sm-12 col-md-12 col-lg-12">
+        <div class="panel panel-default col-sm-12 col-md-4 col-lg-4" ng-repeat="exam in exams| filter:keywords">
+            <div class="panel-body">
+                <h3><a href="/#/exams/{{exam.id}}">{{exam.subject}}</a></h3>
+                <p>{{exam.to_aprove}} %</p>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,17 @@
+rest_api_exam:
+    type: rest
+    resource: Kpicaza\ExamBundle\Controller\Api\ExamController
+    name_prefix:  api_1_
+    # naming collision
+
+rest_api_question:
+    type: rest
+    resource: Kpicaza\ExamBundle\Controller\Api\QuestionController
+    name_prefix:  api_1_
+    # naming collision
+
+rest_api_examresult:
+    type: rest
+    resource: Kpicaza\ExamBundle\Controller\Api\ExamResultController
+    name_prefix:  api_1_
+    # naming collision

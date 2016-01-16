@@ -1,0 +1,31 @@
+<div class="thumb col-sm-12 col-md-12 col-lg-12">
+
+    <ul class="nav nav-tabs">
+        <li ng-class="{'active': 0 == $index }" ng-repeat="question in exam.questions"><a showtab href="#question-{{question.id}}" >{{$index + 1}}</a></li>
+    </ul>
+    
+    <form class="tab-content" novalidate  name="form" ng-submit="submit()">
+        <div role="tabpanel" class="tab-pane fade" ng-class="{'in active': 0 == $index }" ng-repeat="question in exam.questions" id="question-{{question.id}}">
+            <div class="panel panel-default col-sm-12 col-md-12 col-lg-12">
+                <div class="panel-body">
+                    <h3>{{question.question}}</h3>
+                    <div ng-repeat="answer in question.answers" class="checkbox">
+
+                        <label>
+                            <input type="checkbox" name="question_{{question.id}}[]" value="{{ answer.id}}"  
+                                   ng-model="examModel.responses[question.id][answer.id]" >
+                            {{answer.answer}}
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="button" ng-click="reset(form)" value="Reset" />
+        <input type="submit" ng-click="update(examModel)" value="Save" />
+    </form>
+
+</div>
+
+<pre>response = {{examModel| json}}</pre>
+<pre>master = {{master| json}}</pre>

@@ -1,0 +1,185 @@
+<?php
+
+namespace Kpicaza\ExamBundle\Entity;
+
+/**
+ * ExamResult
+ */
+class ExamResult
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $total_points;
+
+    /**
+     * @var \DateTime
+     */
+    private $start_datetime;
+
+    /**
+     * @var \DateTime
+     */
+    private $end_datetime;
+
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated_at;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set totalPoints
+     *
+     * @param integer $totalPoints
+     *
+     * @return ExamResult
+     */
+    public function setTotalPoints($totalPoints)
+    {
+        $this->total_points = $totalPoints;
+
+        return $this;
+    }
+
+    /**
+     * Get totalPoints
+     *
+     * @return integer
+     */
+    public function getTotalPoints()
+    {
+        return $this->total_points;
+    }
+
+    /**
+     * Set startDatetime
+     *
+     * @param \DateTime $startDatetime
+     *
+     * @return ExamResult
+     */
+    public function setStartDatetime($startDatetime)
+    {
+        $this->start_datetime = $startDatetime;
+
+        return $this;
+    }
+
+    /**
+     * Get startDatetime
+     *
+     * @return \DateTime
+     */
+    public function getStartDatetime()
+    {
+        return $this->start_datetime;
+    }
+
+    /**
+     * Set endDatetime
+     *
+     * @param \DateTime $endDatetime
+     *
+     * @return ExamResult
+     */
+    public function setEndDatetime($endDatetime)
+    {
+        $this->end_datetime = $endDatetime;
+
+        return $this;
+    }
+
+    /**
+     * Get endDatetime
+     *
+     * @return \DateTime
+     */
+    public function getEndDatetime()
+    {
+        return $this->end_datetime;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return ExamResult
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return ExamResult
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        // Add your code here
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        // Add your code here
+    }
+}

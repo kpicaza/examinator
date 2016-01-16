@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ExamResult</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ examResult.id }}</td>
+            </tr>
+            <tr>
+                <th>Total_points</th>
+                <td>{{ examResult.totalpoints }}</td>
+            </tr>
+            <tr>
+                <th>Start_datetime</th>
+                <td>{% if examResult.startdatetime %}{{ examResult.startdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>End_datetime</th>
+                <td>{% if examResult.enddatetime %}{{ examResult.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{% if examResult.createdat %}{{ examResult.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{% if examResult.updatedat %}{{ examResult.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('examresult_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('examresult_edit', { 'id': examResult.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

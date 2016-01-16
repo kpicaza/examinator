@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Exam</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ exam.id }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ exam.subject }}</td>
+            </tr>
+            <tr>
+                <th>Access_code</th>
+                <td>{{ exam.accesscode }}</td>
+            </tr>
+            <tr>
+                <th>Is_active</th>
+                <td>{% if exam.isactive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Has_help</th>
+                <td>{% if exam.hashelp %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>To_aprove</th>
+                <td>{{ exam.toaprove }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{% if exam.createdat %}{{ exam.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{% if exam.updatedat %}{{ exam.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('exam_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('exam_edit', { 'id': exam.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

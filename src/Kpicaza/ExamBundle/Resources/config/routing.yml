@@ -1,0 +1,16 @@
+rest_api:
+    type: rest
+    prefix: /api
+    resource: "@KpicazaExamBundle/Resources/config/routing/api.yml"
+
+app_exam:
+    resource: "@KpicazaExamBundle/Resources/config/routing/exam.yml"
+    prefix:   /exam
+
+kpicaza_exam_question:
+        resource: "@KpicazaExamBundle/Resources/config/routing/question.yml"
+        prefix:   /question
+
+kpicaza_exam_answer:
+        resource: "@KpicazaExamBundle/Resources/config/routing/answer.yml"
+        prefix:   /answer

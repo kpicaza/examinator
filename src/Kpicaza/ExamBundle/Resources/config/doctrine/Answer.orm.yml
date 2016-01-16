@@ -1,0 +1,33 @@
+## YAML Template.
+Kpicaza\ExamBundle\Entity\Answer:
+    type: entity
+    repositoryClass: Kpicaza\ExamBundle\Entity\AnswerRepository
+    table: answer
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        answer:
+            type: text
+        is_correct:
+            type: boolean
+            options:
+                default: false
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+
+    manyToOne:
+        question:
+            targetEntity: Question
+            inversedBy: answers
+            joinColumn:
+                name: question_id
+                referencedColumnName: id     
+      
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

@@ -1,0 +1,29 @@
+## YAML Template.
+Kpicaza\ExamBundle\Entity\Question:
+    type: entity
+    repositoryClass: Kpicaza\ExamBundle\Entity\QuestionRepository
+    table: question
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        question:
+            type: text
+        points: 
+            type: integer
+            length: 2
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    oneToMany:
+        answers:
+            targetEntity: Answer
+            cascade: [ "persist" ]
+            mappedBy: question
+      
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

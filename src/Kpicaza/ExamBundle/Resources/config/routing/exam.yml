@@ -1,0 +1,24 @@
+exam_index:
+    path:     /
+    defaults: { _controller: "KpicazaExamBundle:Exam:index" }
+    methods:  GET
+
+exam_show:
+    path:     /{id}/show
+    defaults: { _controller: "KpicazaExamBundle:Exam:show" }
+    methods:  GET
+
+exam_new:
+    path:     /new
+    defaults: { _controller: "KpicazaExamBundle:Exam:new" }
+    methods:  [GET, POST]
+
+exam_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "KpicazaExamBundle:Exam:edit" }
+    methods:  [GET, POST]
+
+exam_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "KpicazaExamBundle:Exam:delete" }
+    methods:  DELETE

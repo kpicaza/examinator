@@ -1,0 +1,22 @@
+parameters:
+    app_rest_api.exam.handler.class: Kpicaza\ExamBundle\Handler\ExamHandler
+    app_rest_api.exam.class: Kpicaza\ExamBundle\Entity\Exam
+    app_rest_api.question.handler.class: Kpicaza\ExamBundle\Handler\QuestionHandler
+    app_rest_api.question.class: Kpicaza\ExamBundle\Entity\Question
+    app_rest_api.examresult.handler.class: Kpicaza\ExamBundle\Handler\ExamResultHandler
+    app_rest_api.examresult.class: Kpicaza\ExamBundle\Entity\ExamResult
+    
+services:
+#    kpicaza_exam.example:
+#        class: Kpicaza\ExamBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+# Api Controller Services
+    app_rest_api.exam.handler:
+        class: "%app_rest_api.exam.handler.class%"
+        arguments: ["@doctrine.orm.entity_manager", "%app_rest_api.exam.class%", "@form.factory"]
+    app_rest_api.question.handler:
+        class: "%app_rest_api.question.handler.class%"
+        arguments: ["@doctrine.orm.entity_manager", "%app_rest_api.question.class%", "@form.factory"]
+    app_rest_api.examresult.handler:
+        class: "%app_rest_api.examresult.handler.class%"
+        arguments: ["@doctrine.orm.entity_manager", "%app_rest_api.examresult.class%", "@form.factory"]

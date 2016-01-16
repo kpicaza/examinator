@@ -1,0 +1,28 @@
+## YAML Template.
+Kpicaza\ExamBundle\Entity\ExamResult:
+    type: entity
+    repositoryClass: Kpicaza\ExamBundle\Entity\ExamResultRepository
+    table: exam_result
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        total_points:
+            type: integer
+            length: 10
+            nullable: true
+        start_datetime:
+            type: datetime
+        end_datetime:
+            type: datetime
+            nulleble: true
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]
+

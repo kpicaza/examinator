@@ -1,0 +1,8 @@
+## YAML Template.
+AppBundle\Entity\AuthCode:
+    type: entity
+    table: oauth2_auth_code
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }

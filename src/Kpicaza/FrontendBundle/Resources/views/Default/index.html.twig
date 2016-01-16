@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="frontendApp" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% stylesheets 
+    '@KpicazaFrontendBundle/Resources/angular/app/bower_components/html5-boilerplate/dist/css/normalize.css' 
+    '@KpicazaFrontendBundle/Resources/angular/app/bower_components/html5-boilerplate/dist/css/main.css' 
+    '@KpicazaFrontendBundle/Resources/angular/bootstrap/css/bootstrap.css' 
+    '@KpicazaFrontendBundle/Resources/angular/app/app.css' 
+            filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        <link href="{{ absolute_url(asset('bundles/kpicazafrontend/font-awesome/css/font-awesome.min.css')) }}" rel="stylesheet" type="text/css"/>
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="/#/">
+                        Harmony app
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="https://twitter.com/SobProgramacion" target="_blank"><i class="fa fa-twitter-square" style="font-size:20px"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/+Sobreprogramacionblog" target="_blank"><i class="fa fa-google-plus-square" style="font-size:20px"></i></a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/exams">Exams</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="main-wrapper" class="container">
+
+            <div ng-view></div>
+            {% block body %}
+            {% endblock %}
+        </div>
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        {% javascripts
+        '@KpicazaFrontendBundle/Resources/angular/app/bower_components/jquery/dist/jquery.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js'
+        '@KpicazaFrontendBundle/Resources/angular/bootstrap/js/bootstrap.min.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/bower_components/angular/angular.min.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/bower_components/angular-route/angular-route.min.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/bower_components/angular-resource/angular-resource.min.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/exam/services/exam.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/exam/controllers/exam.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/exam/directives/showtab.js'
+        '@KpicazaFrontendBundle/Resources/angular/app/app.js'
+        filter='uglifyjs2'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+    </body>
+</html>

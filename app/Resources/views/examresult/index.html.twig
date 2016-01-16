@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ExamResult list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Total_points</th>
+                <th>Start_datetime</th>
+                <th>End_datetime</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for examResult in examResults %}
+            <tr>
+                <td><a href="{{ path('examresult_show', { 'id': examResult.id }) }}">{{ examResult.id }}</a></td>
+                <td>{{ examResult.totalpoints }}</td>
+                <td>{% if examResult.startdatetime %}{{ examResult.startdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if examResult.enddatetime %}{{ examResult.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if examResult.createdat %}{{ examResult.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if examResult.updatedat %}{{ examResult.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('examresult_show', { 'id': examResult.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('examresult_edit', { 'id': examResult.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('examresult_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
